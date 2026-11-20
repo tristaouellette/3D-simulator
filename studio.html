@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f6f3ee" />
+  <title>Studio Form — Move Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#252420;--muted:#858178;--line:#e9e5dd;--paper:#fbfaf7;--accent:#ad725f;--accent-dark:#875443;--sage:#879080}
+    *{box-sizing:border-box}body{margin:0;background:#f4f1ec;color:var(--ink);font-family:'DM Sans',sans-serif;font-size:14px}button{font:inherit;color:inherit;cursor:pointer}button:focus-visible,input:focus-visible{outline:3px solid #c59a88;outline-offset:3px}.app{max-width:1600px;min-height:100vh;margin:auto;padding:0 34px 34px}.topbar{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:12px}.brand-mark{width:34px;height:34px;border:1px solid #c9a394;border-radius:50%;display:grid;place-items:center;color:var(--accent);font-family:'Playfair Display',serif;font-size:19px}.brand-name{font-size:12px;font-weight:700;letter-spacing:.17em}.brand-sub{font-size:10px;color:var(--muted);letter-spacing:.1em;margin-top:3px}.top-right{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:12px}.status-dot{width:7px;height:7px;background:#8c9a7d;border-radius:50%}.pill{border:1px solid var(--line);padding:7px 11px;border-radius:30px;background:rgba(255,255,255,.55)}.heading{display:flex;justify-content:space-between;align-items:end;padding:30px 0 23px}.eyebrow{text-transform:uppercase;letter-spacing:.15em;color:var(--accent);font-size:10px;font-weight:700;margin-bottom:8px}.heading h1{font:500 34px/1.1 'Playfair Display',serif;margin:0;letter-spacing:-.02em}.heading p{font-size:13px;color:var(--muted);margin:8px 0 0}.level{font-size:11px;color:#77736b;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);padding:9px 13px;border-radius:3px;background:#faf9f6}.layout{display:grid;grid-template-columns:minmax(0,1fr) 322px;gap:18px;align-items:stretch}.stage-card,.side-card{background:var(--paper);border:1px solid var(--line);border-radius:5px;overflow:hidden}.stage-card{min-width:0}.stage-head{height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 17px;border-bottom:1px solid var(--line);font-size:11px;font-weight:600;letter-spacing:.04em}.live-tag{display:flex;align-items:center;gap:7px;color:#8a867d;font-weight:500;letter-spacing:0}.live-tag b{width:6px;height:6px;border-radius:50%;background:#9da68d}.scene-wrap{height:min(59vw,535px);min-height:360px;position:relative;overflow:hidden;background:#e8e5dc}.scene-wrap canvas{display:block;width:100%;height:100%}.scene-caption{position:absolute;left:18px;bottom:16px;color:#5f5a52;font-size:10px;letter-spacing:.07em;text-transform:uppercase;pointer-events:none}.scene-hint{position:absolute;right:15px;top:14px;padding:8px 10px;border:1px solid #ffffff9c;background:#fff9;border-radius:3px;color:#716c63;font-size:10px;backdrop-filter:blur(5px);pointer-events:none}.timeline{padding:15px 17px 17px;border-top:1px solid var(--line)}.timeline-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.timeline-title{font-size:10px;text-transform:uppercase;letter-spacing:.13em;color:#77736b;font-weight:700}.time-display{font-variant-numeric:tabular-nums;font-size:11px;color:#77736b}.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.step{position:relative;text-align:left;padding:10px 10px 9px;border:1px solid var(--line);background:#fff;border-radius:3px;min-height:64px;transition:.2s}.step:hover{border-color:#cba897}.step.active{border-color:#ae7968;background:#f7efeb;box-shadow:inset 0 2px 0 #ad725f}.step-num{font-size:9px;color:#a18e80;letter-spacing:.12em}.step-name{font-size:11px;display:block;margin-top:7px;font-weight:600}.side-card{padding:18px 17px;display:flex;flex-direction:column;gap:0}.side-section{padding-bottom:17px;margin-bottom:16px;border-bottom:1px solid var(--line)}.section-title{display:flex;justify-content:space-between;align-items:center;font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#716d65;margin-bottom:13px}.section-title span{font-size:9px;letter-spacing:.04em;font-weight:500;text-transform:none;color:#aaa49a}.transport{display:flex;gap:8px;align-items:center}.play{height:43px;flex:1;background:#a66f5b;border:0;border-radius:3px;color:#fff;display:flex;align-items:center;justify-content:center;gap:9px;font-size:12px;font-weight:600;transition:.2s}.play:hover{background:#905b49}.iconbtn{height:43px;width:43px;background:#fff;border:1px solid var(--line);border-radius:3px;display:grid;place-items:center;color:#77736b}.iconbtn:hover{border-color:#c8aa9d;color:var(--accent)}.speed-label{display:flex;justify-content:space-between;font-size:11px;color:#77736b;margin-bottom:8px}.speed-label strong{color:#453e38;font-weight:600}.range{width:100%;height:3px;appearance:none;background:#e6dfd6;accent-color:#a66f5b;display:block}.range::-webkit-slider-thumb{appearance:none;width:13px;height:13px;border-radius:50%;background:#a66f5b;border:2px solid white;box-shadow:0 0 0 1px #a66f5b;cursor:pointer}.range::-moz-range-thumb{width:11px;height:11px;border-radius:50%;background:#a66f5b;border:2px solid white;box-shadow:0 0 0 1px #a66f5b;cursor:pointer}.range-scale{display:flex;justify-content:space-between;font-size:9px;color:#aaa49a;margin-top:7px}.current-step{background:#f4f0e9;border-left:2px solid #ad725f;padding:11px 12px;margin-bottom:15px}.current-step small{font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:#9b715f;font-weight:700}.current-step h2{font:500 20px 'Playfair Display',serif;margin:5px 0}.current-step p{font-size:11px;line-height:1.55;color:#716d65;margin:0}.cues{list-style:none;margin:0;padding:0;display:grid;gap:9px}.cues li{font-size:11px;color:#69655d;display:flex;align-items:flex-start;gap:8px;line-height:1.4}.check{width:15px;height:15px;border:1px solid #d8d0c5;border-radius:50%;display:grid;place-items:center;flex:0 0 15px;color:#92705e;font-size:9px}.help{font-size:11px;line-height:1.6;color:#77736b;margin:0}.help strong{color:#49443d;font-weight:600}.camera-row{display:flex;gap:7px}.camera-btn{flex:1;padding:8px 5px;background:white;border:1px solid var(--line);border-radius:3px;font-size:10px;color:#6e6a62}.camera-btn:hover{border-color:#c8aa9d;color:var(--accent-dark)}.footer{display:flex;justify-content:space-between;padding:13px 3px;color:#a09a90;font-size:10px}.keyboard{border:1px solid #e4ded4;border-radius:3px;padding:2px 5px;font-size:9px;margin:0 2px;background:#faf9f6;color:#716d65}
+    @media(max-width:980px){.app{padding:0 18px 24px}.layout{grid-template-columns:minmax(0,1fr) 290px;gap:12px}.scene-wrap{min-height:330px}.side-card{padding:15px 13px}.step{padding:8px 7px}.step-name{font-size:10px}}
+    @media(max-width:720px){.app{padding:0 12px 18px}.topbar{height:65px}.heading{padding:22px 0 17px}.heading h1{font-size:29px}.heading p{font-size:12px}.level{display:none}.layout{grid-template-columns:1fr}.scene-wrap{height:67vw;min-height:300px;max-height:490px}.side-card{display:grid;grid-template-columns:1fr 1fr;column-gap:15px}.side-section{min-width:0}.side-section:nth-child(2){grid-column:2;grid-row:1}.side-section:nth-child(3){grid-column:1;grid-row:2}.side-section:nth-child(4){grid-column:2;grid-row:2}.side-section:nth-child(5){grid-column:1 / -1;grid-row:3;border-bottom:0;margin-bottom:0;padding-bottom:0}.steps{gap:4px}.step{min-height:59px;padding:7px 5px}.step-name{font-size:9px}.footer{font-size:9px}}
+    @media(max-width:430px){.side-card{display:flex}.scene-wrap{min-height:280px}.scene-hint{font-size:9px}.step-name{font-size:9px}.steps{gap:4px}.step{padding-left:5px;padding-right:4px}.top-right .pill:first-child{display:none}}
+    .steps{grid-template-columns:repeat(3,1fr)}
+  </style>
+  <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}</script>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="Studio Form home"><div class="brand-mark">S</div><div><div class="brand-name">STUDIO FORM</div><div class="brand-sub">MOVEMENT LABORATORY</div></div></a>
+      <div class="top-right"><span class="status-dot"></span><span>Interactive lesson</span><a class="pill" href="index.html">← All moves</a></div>
+    </header>
+    <section class="heading"><div><div class="eyebrow" id="moveEyebrow">Technique study · 01</div><h1 id="moveHeading">Explore the pirouette</h1><p id="moveSubhead">A slow study of balance, alignment, and a clean turn.</p></div><div class="level" id="moveLevel">✳ &nbsp;Beginner friendly</div></section>
+    <div class="layout">
+      <section class="stage-card" aria-label="3D dance studio">
+        <div class="stage-head"><span>THE STUDIO</span><span class="live-tag"><b></b> 3D practice space</span></div>
+        <div class="scene-wrap" id="scene"><div class="scene-hint">Drag to orbit &nbsp;·&nbsp; Scroll to zoom</div><div class="scene-caption" id="moveCaption">Front view &nbsp; / &nbsp; Right leg working</div></div>
+        <div class="timeline"><div class="timeline-top"><span class="timeline-title">Movement breakdown</span><span class="time-display" id="time">00:00 / 00:08</span></div><div class="steps" id="steps"></div></div>
+      </section>
+      <aside class="side-card">
+        <section class="side-section"><div class="section-title">Practice controls <span>Take it at your pace</span></div><div class="transport"><button class="play" id="play" aria-label="Play animation"><span id="playIcon">▶</span><span id="playText">Play movement</span></button><button class="iconbtn" id="restart" aria-label="Restart movement" title="Restart"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3.1 6.2A5.2 5.2 0 1 1 3 9.1M3.1 6.2V2.9M3.1 6.2h3.2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div></section>
+        <section class="side-section"><div class="section-title">Animation speed <span>Slow it down to learn</span></div><div class="speed-label"><span>Speed</span><strong id="speedValue">0.75×</strong></div><input class="range" id="speed" type="range" min="0.25" max="1.5" step="0.25" value="0.75" aria-label="Animation speed"><div class="range-scale"><span>Slower</span><span>Faster</span></div></section>
+        <section class="side-section"><div class="section-title">Your focus</div><div class="current-step"><small id="stepKicker">STEP 01 · PREPARE</small><h2 id="stepTitle">Find your balance</h2><p id="stepDescription">Begin in a comfortable fifth position. Lengthen your spine and settle your weight over the supporting foot.</p></div><ul class="cues"><li><span class="check">✓</span><span id="cue1">Keep your shoulders relaxed</span></li><li><span class="check">✓</span><span id="cue2">Spot one point straight ahead</span></li><li><span class="check">✓</span><span id="cue3">Press tall through the standing leg</span></li></ul></section>
+        <section class="side-section"><div class="section-title">View the dancer</div><div class="camera-row"><button class="camera-btn" data-view="front">Front</button><button class="camera-btn" data-view="side">Side</button><button class="camera-btn" data-view="three">3/4 view</button></div></section>
+        <section class="side-section"><div class="section-title">How to use this lesson</div><p class="help"><strong>Play</strong> the full movement or select a numbered step below the stage to preview it. <strong>Drag</strong> to look around the studio and <strong>scroll</strong> to zoom. Use the speed slider to study each part at your own pace.</p></section>
+      </aside>
+    </div>
+    <footer class="footer"><span>A practice companion · Move gently and within your comfort</span><span><span class="keyboard">SPACE</span> play / pause</span></footer>
+  </main>
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+    const lessons={
+      pirouette:{
+        eyebrow:'Technique study · 01',title:'Explore the pirouette',subtitle:'A slow study of balance, alignment, and a clean turn.',level:'Ballet · Foundation',caption:'Front view / Right leg working',
+        cues:['Keep your shoulders relaxed','Spot one point straight ahead','Press tall through the standing leg'],
+        steps:[
+          {title:'Prepare in fourth',short:'Prepare',kick:'PREPARE',start:0,end:2,description:'Face front. Place your left leg forward and right leg behind. Reach your right arm gently in front and open your left arm to the side.'},
+          {title:'Rise, passé & turn',short:'Rise & turn',kick:'RISE · PASSÉ · TURN',start:2,end:6.1,description:'Rise onto the ball of your left foot. Bring your right foot to passé beside the left knee, round your arms like holding a beach ball, and complete one turn.'},
+          {title:'Finish in your start pose',short:'Finish',kick:'FINISH',start:6.1,end:8,description:'Lower with control and return to the same front-facing pose: left leg forward, right leg behind, right arm in front, and left arm to the side.'}
+        ]
+      },
+      'body-roll':{
+        eyebrow:'Technique study · 02',title:'Explore the body roll',subtitle:'Let a smooth wave travel from your chest through your hips.',level:'Contemporary · Flow',caption:'Front view / Follow the wave',
+        cues:['Keep your knees soft','Lead with your chest','Let your hips finish the wave'],
+        steps:[
+          {title:'Find your base',short:'Prepare',kick:'PREPARE',start:0,end:2,description:'Stand tall with your feet comfortably apart. Soften your knees, relax your shoulders, and let your arms open gently at your sides.'},
+          {title:'Roll through the body',short:'Roll through',kick:'CHEST · RIBS · HIPS',start:2,end:6.1,description:'Lift your chest first, let the ripple travel through your ribs, then curl your hips under and release. Keep the movement smooth and easy.'},
+          {title:'Finish tall',short:'Finish',kick:'FINISH',start:6.1,end:8,description:'Stack your spine comfortably over your hips. Let the arms soften and return to your starting stance.'}
+        ]
+      },
+      leap:{
+        eyebrow:'Technique study · 03',title:'Explore the leap',subtitle:'Build a soft plié into a long, open shape in the air.',level:'Ballet · Dynamics',caption:'Front view / Take flight',
+        cues:['Bend before you push off','Reach through both legs','Land softly through the knees'],
+        steps:[
+          {title:'Prepare for takeoff',short:'Prepare',kick:'PLIÉ · PREPARE',start:0,end:2,description:'Begin in a comfortable fourth position with the left foot forward. Soften both knees and let your arms open to prepare.'},
+          {title:'Leap & open',short:'Leap',kick:'PUSH · OPEN · FLOAT',start:2,end:6.1,description:'Push from the floor and open into a split shape: left leg reaching forward, right leg reaching behind, and arms lifted wide. Keep the shape light.'},
+          {title:'Land with control',short:'Land',kick:'LAND · FINISH',start:6.1,end:8,description:'Return to the floor gently through a soft plié. Bring your arms down and find your balance before you finish.'}
+        ]
+      }
+    };
+    const moveId=new URLSearchParams(location.search).get('move')||'pirouette';
+    const lesson=lessons[moveId]||lessons.pirouette;
+    document.title=`Studio Form — ${lesson.title.replace('Explore the ','')}`;
+    document.querySelector('#moveEyebrow').textContent=lesson.eyebrow;
+    document.querySelector('#moveHeading').textContent=lesson.title;
+    document.querySelector('#moveSubhead').textContent=lesson.subtitle;
+    document.querySelector('#moveLevel').textContent=`✳  ${lesson.level}`;
+    document.querySelector('#moveCaption').textContent=lesson.caption;
+    lesson.cues.forEach((cue,i)=>document.querySelector(`#cue${i+1}`).textContent=cue);
+
+    const host=document.querySelector('#scene');
+    const renderer=new THREE.WebGLRenderer({antialias:true,alpha:false});
+    renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.1;host.prepend(renderer.domElement);
+    const scene=new THREE.Scene();scene.background=new THREE.Color('#e9e6de');scene.fog=new THREE.Fog('#e9e6de',13,28);
+    const camera=new THREE.PerspectiveCamera(35,1,.1,60);camera.position.set(5.9,3.5,9.1);
+    const controls=new OrbitControls(camera,renderer.domElement);controls.target.set(0,1.35,0);controls.enableDamping=true;controls.dampingFactor=.07;controls.minDistance=4.2;controls.maxDistance=13;controls.maxPolarAngle=Math.PI*.48;controls.minPolarAngle=.45;
+    scene.add(new THREE.HemisphereLight(0xfff8ed,0x888879,2.15));
+    const key=new THREE.DirectionalLight(0xfff5e8,3.5);key.position.set(-4,8,5);key.castShadow=true;key.shadow.mapSize.set(2048,2048);key.shadow.camera.left=-7;key.shadow.camera.right=7;key.shadow.camera.top=8;key.shadow.camera.bottom=-5;key.shadow.bias=-.0004;scene.add(key);
+    const fill=new THREE.DirectionalLight(0xe2e9ed,1.3);fill.position.set(5,4,-4);scene.add(fill);
+    const mat=(color,roughness=.75,metalness=0)=>new THREE.MeshStandardMaterial({color,roughness,metalness});
+    const floorMat=mat('#c9bfb0'),wallMat=mat('#ece9e1'),wood=mat('#9f7965'),trim=mat('#c7c2b7'),mirror=mat('#b8c8c5',.2,.1);
+    const box=(w,h,d,m,x,y,z,parent=scene)=>{const o=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m);o.position.set(x,y,z);o.castShadow=true;o.receiveShadow=true;parent.add(o);return o};
+    const floor=new THREE.Mesh(new THREE.PlaneGeometry(30,30),floorMat);floor.rotation.x=-Math.PI/2;floor.position.y=-.03;floor.receiveShadow=true;scene.add(floor);
+    for(let i=-14;i<=14;i++){const line=new THREE.Mesh(new THREE.BoxGeometry(30,.006,.012),mat('#b6aa99'));line.position.set(0,.005,i*.62);scene.add(line)}
+    box(16,7,.18,wallMat,0,3.5,-4.3);box(16,.18,.25,trim,0,.12,-4.12);box(16,.16,.25,trim,0,6.9,-4.12);
+    // Tall mirror panels, warm timber frames, and a simple barre give the room a recognizable studio scale.
+    for(let x=-5.65;x<=5.66;x+=2.82){box(2.62,4.48,.06,mirror,x,3.43,-4.17);for(const xx of [x-1.34,x+1.34])box(.07,4.64,.1,wood,xx,3.43,-4.08);box(2.73,.08,.1,wood,x,5.76,-4.08);box(2.73,.08,.1,wood,x,1.1,-4.08)}
+    for(let x=-7.2;x<=7.2;x+=.18)box(.035,.035,.035,mat('#d6b894'),x,5.98,-4.06);
+    // Barre runs along the rear wall on understated supports.
+    for(const y of [1.12,1.42]){const rail=new THREE.Mesh(new THREE.CylinderGeometry(.035,.035,14,12),wood);rail.rotation.z=Math.PI/2;rail.position.set(0,y,-3.82);rail.castShadow=true;scene.add(rail)}
+    for(let x=-6;x<=6;x+=2){const sup=new THREE.Mesh(new THREE.CylinderGeometry(.018,.024,.42,8),trim);sup.position.set(x,1.26,-3.82);scene.add(sup)}
+    // Dancer: softly modeled primitive forms with articulated pivots for clear, readable positions.
+    const dancer=new THREE.Group();dancer.position.set(0,0,.35);scene.add(dancer);
+    const skin=mat('#b98268'),leotard=mat('#748579'),tulle=mat('#e7d9cc'),shoe=mat('#795b50'),hair=mat('#493b35'),highlight=mat('#d8b99f');
+    const sphere=(parent,m,pos,scale,seg=24)=>{const o=new THREE.Mesh(new THREE.SphereGeometry(1,seg,16),m);o.position.set(...pos);o.scale.set(...scale);o.castShadow=true;o.receiveShadow=true;parent.add(o);return o};
+    const limb=(parent,m,a,b,r1,r2)=>{const v1=new THREE.Vector3(...a),v2=new THREE.Vector3(...b),dir=v2.clone().sub(v1);const o=new THREE.Mesh(new THREE.CylinderGeometry(r2,r1,dir.length(),16),m);o.position.copy(v1.add(v2).multiplyScalar(.5));o.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),dir.normalize());o.castShadow=true;o.receiveShadow=true;parent.add(o);return o};
+    const torso=new THREE.Group();torso.position.y=1.5;dancer.add(torso);
+    const torsoMesh=new THREE.Mesh(new THREE.CylinderGeometry(.19,.3,.72,24),leotard);torsoMesh.position.y=.2;torsoMesh.castShadow=true;torsoMesh.receiveShadow=true;torso.add(torsoMesh);
+    sphere(torso,leotard,[0,-.2,0],[.28,.2,.18]);
+    limb(torso,skin,[0,.48,0],[0,.69,0],.065,.055);sphere(torso,skin,[0,.78,0],[.135,.17,.13]);
+    const cap=sphere(torso,hair,[0,.91,-.015],[.137,.085,.134]);cap.position.y=.88; sphere(torso,hair,[0,.78,-.125],[.11,.14,.045]);sphere(torso,hair,[0,.67,-.14],[.09,.2,.05]);
+    // A quiet eye line makes the front-facing spotting direction legible from a distance.
+    sphere(torso,highlight,[-.045,.79,.119],[.012,.014,.009],12);sphere(torso,highlight,[.045,.79,.119],[.012,.014,.009],12);
+    // Tutu layers form a soft, short bell silhouette.
+    for(let i=0;i<3;i++){const sk=new THREE.Mesh(new THREE.ConeGeometry(.43+i*.025,.14,36,1,true),tulle);sk.rotation.x=Math.PI;sk.position.y=-.17-i*.055;sk.castShadow=true;sk.receiveShadow=true;torso.add(sk)}
+    // Pivoted arms and legs, built from tapered segments and rounded joint caps.
+    const arms=[];for(const side of [-1,1]){const arm=new THREE.Group();arm.position.set(side*.2,.45,0);torso.add(arm);const elbowAt=[side*.25,-.08,.045];limb(arm,skin,[0,0,0],elbowAt,.065,.05);sphere(arm,skin,elbowAt,[.055,.055,.055]);const elbow=new THREE.Group();elbow.position.set(...elbowAt);arm.add(elbow);const handAt=[-side*.29,-.2,.12];limb(elbow,skin,[0,0,0],handAt,.05,.036);sphere(elbow,skin,handAt,[.044,.052,.045]);arms.push({shoulder:arm,elbow})}
+    const legs=[];
+    for(const side of [-1,1]){
+      const hip=new THREE.Group();hip.position.set(side*(moveId==='body-roll'?.14:.105),1.1,moveId==='body-roll'?0:(side===-1?.16:-.16));dancer.add(hip);
+      limb(hip,skin,[0,0,0],[0,-.53,0],.105,.071);
+      sphere(hip,skin,[0,-.53,0],[.073,.08,.072]);
+      const knee=new THREE.Group();knee.position.y=-.53;hip.add(knee);
+      limb(knee,skin,[0,0,0],[0,-.49,0],.069,.045);
+      const foot=new THREE.Group();foot.position.y=-.49;knee.add(foot);sphere(foot,shoe,[0,0,.12],[.06,.055,.16]);
+      legs.push({hip,knee,foot});
+    }
+    // Small studio plant and wall sconces soften the neutral architecture.
+    for(const x of [-7.4,7.4]){const lamp=new THREE.Mesh(new THREE.SphereGeometry(.14,16,12),mat('#f5dfb8',.25));lamp.position.set(x,4.5,-4.0);scene.add(lamp);const pl=new THREE.PointLight('#efd5af',3,4);pl.position.set(x,4.5,-3.7);scene.add(pl)}
+    const pot=new THREE.Mesh(new THREE.CylinderGeometry(.2,.16,.36,20),mat('#b39c85'));pot.position.set(-6.5,.18,-2.9);pot.castShadow=true;scene.add(pot);
+    for(let i=0;i<8;i++){const leaf=new THREE.Mesh(new THREE.CapsuleGeometry(.045,.48,4,8),mat(i%2?'#73826e':'#87947b'));leaf.position.set(-6.5+Math.cos(i*Math.PI/4)*.16,.66,-2.9+Math.sin(i*Math.PI/4)*.16);leaf.rotation.z=Math.cos(i*Math.PI/4)*.5;leaf.rotation.x=Math.sin(i*Math.PI/4)*.45;leaf.castShadow=true;scene.add(leaf)}
+
+    const movementSteps=lesson.steps;
+    const duration=8;let time=0,playing=false,speed=.75,last=performance.now(),activeIndex=-1,segmentEnd=duration;
+    const stepHolder=document.querySelector('#steps');
+    movementSteps.forEach((s,i)=>{const b=document.createElement('button');b.className='step';b.innerHTML=`<span class="step-num">0${i+1} / 03</span><span class="step-name">${s.short}</span>`;b.setAttribute('aria-label',`Preview step ${i+1}: ${s.title}`);b.addEventListener('click',()=>{time=s.start;segmentEnd=i===movementSteps.length-1?s.end:s.end-.01;playing=true;updateTransport()});stepHolder.append(b)});
+    const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));const smooth=(a,b,x)=>{const t=clamp((x-a)/(b-a));return t*t*(3-2*t)};const mix=(a,b,t)=>a+(b-a)*t;
+    function pose(t){if(moveId==='body-roll'){poseBodyRoll(t);return}if(moveId==='leap'){poseLeap(t);return}posePirouette(t)}
+    function posePirouette(t){
+      const finish=smooth(5.8,6.8,t),rise=smooth(2,2.75,t)*(1-finish),gather=rise;
+      // A complete turn returns to the original facing. Step three settles back into
+      // the exact preparation shape instead of ending in the rounded turn position.
+      dancer.rotation.y=Math.PI*2*smooth(2.35,5.8,t);
+      dancer.position.y=.12*rise;
+      // Left leg supports on relevé. The right thigh opens and the knee folds so
+      // the right foot arrives in front of the left knee in passé.
+      legs[0].hip.rotation.set(0,0,0);legs[0].knee.rotation.set(0,0,0);
+      legs[0].foot.rotation.x=1.4*rise;
+      legs[1].hip.rotation.x=-.45*gather;legs[1].hip.rotation.y=0;legs[1].hip.rotation.z=.6*gather;
+      legs[1].knee.rotation.x=.9*gather;legs[1].knee.rotation.z=-2.15*gather;
+      legs[1].foot.rotation.x=1.4*gather;
+      // Right arm begins rounded in front; left arm opens to the side. Both elbows
+      // bend inward into a beach-ball shape for the turn, then return to preparation.
+      arms[0].shoulder.rotation.z=mix(-.2,.2,gather);arms[0].shoulder.rotation.y=.28*gather;
+      arms[0].elbow.rotation.z=mix(-1.75,.3,gather);arms[0].elbow.rotation.y=0;
+      arms[1].shoulder.rotation.z=-.22*gather;arms[1].shoulder.rotation.y=mix(-1.05,-.25,gather);
+      arms[1].elbow.rotation.y=2.1*(1-gather);arms[1].elbow.rotation.z=0;
+      torso.rotation.z=0;torso.rotation.x=-.035*rise;
+      dancer.rotation.z=0;
+    }
+    function poseBodyRoll(t){
+      const chest=smooth(2,2.75,t)*(1-smooth(2.8,3.55,t));
+      const ribs=smooth(2.65,3.45,t)*(1-smooth(3.5,4.25,t));
+      const hips=smooth(3.35,4.2,t)*(1-smooth(4.45,5.25,t));
+      const flow=Math.max(chest,ribs,hips);
+      dancer.position.y=0;dancer.position.z=.35;dancer.rotation.y=.14*hips;dancer.rotation.z=0;
+      torso.rotation.x=.48*chest-.42*ribs+.14*hips;torso.rotation.z=.13*(chest-hips);
+      legs[0].hip.rotation.set(.035*flow,0,.09*hips);legs[1].hip.rotation.set(-.035*flow,0,-.09*hips);
+      legs[0].knee.rotation.set(.08*flow,0,0);legs[1].knee.rotation.set(-.08*flow,0,0);
+      legs[0].foot.rotation.set(0,0,0);legs[1].foot.rotation.set(0,0,0);
+      arms[0].shoulder.rotation.set(0,.08*flow,-.38-.12*chest);arms[0].elbow.rotation.set(0,0,-1.15);
+      arms[1].shoulder.rotation.set(0,-.08*flow,.38+.12*chest);arms[1].elbow.rotation.set(0,0,.45);
+    }
+    function poseLeap(t){
+      const plié=smooth(.25,1.15,t)*(1-smooth(1.45,2,t));
+      const air=smooth(2,2.8,t)*(1-smooth(5.35,6.2,t));
+      const landing=smooth(5.8,6.3,t)*(1-smooth(6.65,7.1,t));
+      dancer.position.y=.54*air-.035*landing;dancer.position.z=.35;dancer.rotation.set(0,0,0);
+      torso.rotation.x=-.11*air;torso.rotation.z=0;
+      // Left leg reaches forward and right leg extends behind as the dancer floats.
+      legs[0].hip.rotation.set(-1.05*air,0,0);legs[1].hip.rotation.set(1.05*air,0,0);
+      legs[0].knee.rotation.set(.2*air+.35*landing,0,0);legs[1].knee.rotation.set(-.2*air-.35*landing,0,0);
+      legs[0].foot.rotation.x=1.05*air;legs[1].foot.rotation.x=1.05*air;
+      // A small knee bend loads the jump and absorbs the landing; arms open in flight.
+      legs[0].hip.rotation.z=-.045*plié;legs[1].hip.rotation.z=.045*plié;
+      arms[0].shoulder.rotation.set(0,.16*air,-.34-.52*air);arms[1].shoulder.rotation.set(0,-.16*air,.34+.52*air);
+      arms[0].elbow.rotation.set(0,0,-1.0-.2*air);arms[1].elbow.rotation.set(0,0,.55+.3*air);
+    }
+    const fmt=t=>`00:${String(Math.floor(t)).padStart(2,'0')}`;
+    function updateUI(){const idx=Math.min(movementSteps.length-1,movementSteps.findIndex((s,i)=>tIn(s,time)|| (i===movementSteps.length-1&&time>=s.start)));if(idx<0)return;if(idx!==activeIndex){activeIndex=idx;const s=movementSteps[idx];document.querySelectorAll('.step').forEach((e,i)=>{e.classList.toggle('active',i===idx);e.setAttribute('aria-current',i===idx?'step':'false')});document.querySelector('#stepKicker').textContent=`STEP 0${idx+1} · ${s.kick}`;document.querySelector('#stepTitle').textContent=s.title;document.querySelector('#stepDescription').textContent=s.description}document.querySelector('#time').textContent=`${fmt(time)} / 00:08`}
+    function tIn(s,x){return x>=s.start&&x<s.end}
+    function updateTransport(){document.querySelector('#playIcon').textContent=playing?'Ⅱ':'▶';document.querySelector('#playText').textContent=playing?'Pause movement':'Play movement';document.querySelector('#play').setAttribute('aria-label',playing?'Pause animation':'Play animation')}
+    document.querySelector('#play').addEventListener('click',()=>{if(time>=duration)time=0;segmentEnd=duration;playing=!playing;updateTransport()});document.querySelector('#restart').addEventListener('click',()=>{time=0;segmentEnd=duration;playing=false;updateTransport();pose(0);updateUI()});
+    document.querySelector('#speed').addEventListener('input',e=>{speed=Number(e.target.value);document.querySelector('#speedValue').textContent=`${speed.toFixed(2).replace(/0$/,'')}×`});
+    document.querySelectorAll('.camera-btn').forEach(b=>b.addEventListener('click',()=>{const v=b.dataset.view;const targets={front:new THREE.Vector3(0,3.3,9.5),side:new THREE.Vector3(9.5,3.1,0),three:new THREE.Vector3(6,3.6,8)};camera.position.copy(targets[v]);controls.target.set(0,1.35,0);controls.update()}));
+    window.addEventListener('keydown',e=>{if(e.code==='Space'&&!/INPUT|TEXTAREA|BUTTON/.test(document.activeElement.tagName)){e.preventDefault();if(time>=duration)time=0;segmentEnd=duration;playing=!playing;updateTransport()}});
+    const resize=()=>{const w=host.clientWidth,h=host.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix()};new ResizeObserver(resize).observe(host);resize();pose(0);updateUI();
+    function animate(now){requestAnimationFrame(animate);const dt=Math.min((now-last)/1000,.05);last=now;if(playing){time+=dt*speed;if(time>=segmentEnd){time=segmentEnd;playing=false;updateTransport()}}pose(time);updateUI();controls.update();renderer.render(scene,camera)}requestAnimationFrame(animate);
+  </script>
+</body>
+</html>

@@ -1,18 +1,15 @@
-# Studio Form: Pirouette Lab
+# Studio Form — Movement Laboratory
 
-A beginner-friendly, browser-based 3D ballet lesson. The dancer prepares with the left leg forward, right leg behind, right arm in front, and left arm to the side; rises on the left foot into right passé with rounded arms; turns once; and returns to the preparation pose.
+A small dance-learning site with three interactive 3D lessons: a pirouette, body roll, and leap. Start at `index.html`, choose a move, then use its step preview, playback, speed control, and camera views to study the movement.
 
 ## Run it
 
-Open `index.html` in a current browser while connected to the internet. Three.js and the display fonts load from public CDNs.
+Open `index.html` in a current browser while connected to the internet. The studio uses Three.js and display fonts from public CDNs, and the landing page uses a photo hosted by Unsplash.
 
-## Controls
+## Lessons
 
-- **Play movement** or press **Space** to play and pause.
-- Select a numbered movement card to preview that part of the pirouette.
-- Adjust **Animation speed** from 0.25× to 1.5×.
-- Drag in the studio to orbit; scroll to zoom.
-- Choose **Front**, **Side**, or **3/4 view** to return to a useful camera angle.
-- Use the circular arrow to restart.
+- **Pirouette:** prepare in fourth, rise on the left foot into right passé with beach-ball arms, turn once, then return to the preparation pose.
+- **Body roll:** find a comfortable base, let the wave travel from chest through ribs to hips, then finish tall.
+- **Leap:** prepare with a soft plié, open into a split leap, and land with control.
 
-The model is an illustrative movement guide. Work gently within your comfort and follow instruction from your dance teacher.
+Every lesson has three clickable previews. Select a step to play that section, use **Play movement** for the full sequence, and drag or scroll in the studio to adjust the view.
